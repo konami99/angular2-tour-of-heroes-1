@@ -3,11 +3,6 @@
   "version": "0.0.1",
   "scripts": {
     "start": "webpack-dev-server --inline --colors --progress --display-error-details --display-cached --port 8080",
-    "lite": "lite-server",
-    "postinstall": "typings install",
-    "tsc": "tsc",
-    "tsc:w": "tsc -w",
-    "typings": "typings",
     "build": "webpack"
   },
   "dependencies": {
