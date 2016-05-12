@@ -2,8 +2,13 @@
   "name": "angular2-tour-of-heroes",
   "version": "0.0.1",
   "scripts": {
+    "clean": "rimraf dist",
+    "postinstall": "typings install",
+    "prebuild": "npm run clean",
+    "build": "webpack --config webpack.prod.config.js --progress --profile --colors --display-error-details --display-cached",
     "start": "webpack-dev-server --inline --colors --progress --display-error-details --display-cached --port 8080",
-    "build": "webpack"
+    "preserve:dist": "npm run build",
+    "serve:dist": "static dist -z"
   },
   "dependencies": {
     "angular2": "2.0.0-beta.15",
