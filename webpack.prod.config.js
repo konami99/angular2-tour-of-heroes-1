@@ -33,6 +33,7 @@ module.exports = {
     plugins: [
         new CommonsChunkPlugin({name: 'vendor', filename: 'vendor.bundle.js', minChunks: Infinity}),
         new CompressionPlugin({regExp: /\.css$|\.html$|\.js$|\.map$/}),
+        new CopyWebpackPlugin([{from: './index.dist.html', to: 'index.html'}]),
         new DedupePlugin(),
         new DefinePlugin({'webpack': {'ENV': JSON.stringify(metadata.env)}}),
         new OccurenceOrderPlugin(true),
