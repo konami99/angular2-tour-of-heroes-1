@@ -8,6 +8,6 @@ import 'angular2/http';
 import 'angular2/router';
 
 // RxJS
-import 'rxjs';
+//import 'rxjs';
 
 // Other vendor libraries
