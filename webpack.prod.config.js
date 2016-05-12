@@ -20,7 +20,8 @@ const metadata = {
 }
 
 module.exports = {
-    debug: true,
+    debug: false,
+    metadata: metadata,
     entry: {
         'main': './app/main.ts',
         'vendor': './app/vendor.ts'
@@ -30,17 +31,15 @@ module.exports = {
         filename: 'bundle.js'
     },
     plugins: [
-        new CommonsChunkPlugin('vendor', 'vendor.bundle.js'),
+        new CommonsChunkPlugin({name: 'vendor', filename: 'vendor.bundle.js', minChunks: Infinity}),
         new CompressionPlugin({regExp: /\.css$|\.html$|\.js$|\.map$/}),
         new DedupePlugin(),
         new DefinePlugin({'webpack': {'ENV': JSON.stringify(metadata.env)}}),
         new OccurenceOrderPlugin(true),
-            new UglifyJsPlugin({
+        new UglifyJsPlugin({
             compress: {screw_ie8 : true},
-            mangle: {
-                screw_ie8 : true,
-                except: ['RouterLink'] // Remove after Angular team fixes issue #6678
-        } })
+            mangle: false
+        })
         //new CopyWebpackPlugin([{from: './index.html', to: 'index.html'}])
     ],
     resolve: {
