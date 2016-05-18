@@ -49,12 +49,13 @@ role :db,  %w{deploy@ec2-54-186-77-113.us-west-2.compute.amazonaws.com}
 #
 # The server-based syntax can be used to override options:
 # ------------------------------------
-server 'ec2-54-186-77-113.us-west-2.compute.amazonaws.com',
-   user: 'deploy',
+server 'example.com',
+   user: 'user_name',
    roles: %w{web app},
    ssh_options: {
-     keys: %w(/Users/rchou/.ssh/aws1.pem),
+     user: 'deploy', # overrides user setting above
+     keys: %w(/Users/deploy/.ssh/aws1.pem),
      forward_agent: false,
-     auth_methods: %w(publickey password)
-     password: 'please use keys'
+     auth_methods: %w(publickey password),
+     password: 'please use keys',
    }
