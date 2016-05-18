@@ -38,13 +38,14 @@ set :pty, true
 
 namespace :deploy do
 
-  after :restart, :clear_cache do
-    on roles(:web), in: :groups, limit: 3, wait: 10 do
-      # Here we can do anything such as:
-      # within release_path do
-      #   execute :rake, 'cache:clear'
-      # end
-    end
+  desc "Build"
+  after :updated, :build do
+      on roles(:app) do
+          within release_path  do
+              execute :npm, "install" # install dependencies
+              #execute :chmod, "u+x artisan" # make artisan executable
+          end
+      end
   end
 
 end
