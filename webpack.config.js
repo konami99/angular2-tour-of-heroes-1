@@ -16,7 +16,8 @@ module.exports = {
     contentBase: 'src',
     historyApiFallback: true,
     host: metadata.host,
-    port: metadata.port
+    port: metadata.port,
+    outputPath: './dist'
   },
   devtool: 'source-map',
   entry: {
