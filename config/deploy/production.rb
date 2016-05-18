@@ -7,7 +7,7 @@ server 'ec2-54-186-77-113.us-west-2.compute.amazonaws.com', user: 'deploy', role
 # server 'example.com', user: 'deploy', roles: %w{app web}, other_property: :other_value
 # server 'db.example.com', user: 'deploy', roles: %w{db}
 
-
+set :branch, 'webpack'
 
 # role-based syntax
 # ==================
