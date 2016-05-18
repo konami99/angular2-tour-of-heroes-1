@@ -4,7 +4,7 @@ lock '3.5.0'
 set :application, 'angular'
 set :scm, :git
 set :repo_url, 'https://github.com/konami99/angular2-tour-of-heroes-1.git'
-
+set :deploy_via, :remote_cache
 # Default branch is :master
 # ask :branch, `git rev-parse --abbrev-ref HEAD`.chomp
 
