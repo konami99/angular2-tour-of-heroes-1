@@ -43,7 +43,8 @@ namespace :deploy do
       on roles(:app) do
           within release_path  do
               execute "/home/ubuntu/.nvm/versions/node/v4.4.4/bin/npm", "install" # install dependencies
-              #execute :chmod, "u+x artisan" # make artisan executable
+              execute "/home/ubuntu/.nvm/versions/node/v4.4.4/bin/npm", "build" # install dependencies
+              execute "/home/ubuntu/.nvm/versions/node/v4.4.4/bin/npm", "deploy" # install dependencies
           end
       end
   end
