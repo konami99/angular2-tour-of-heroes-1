@@ -42,7 +42,7 @@ namespace :deploy do
   after :updated, :build do
       on roles(:app) do
           within release_path  do
-              execute :npm, "install" # install dependencies
+              execute :/home/ubuntu/.nvm/versions/node/v4.4.4/bin/npm, "install" # install dependencies
               #execute :chmod, "u+x artisan" # make artisan executable
           end
       end
