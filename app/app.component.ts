@@ -20,7 +20,7 @@ import { HeroService } from './hero.service';
   directives: [ROUTER_DIRECTIVES],
   providers: [
     HeroService,
-    ROUTER_PROVIDERS
+    ROUTER_PROVIDERS, provide(LocationStrategy, {useClass: HashLocationStrategy})
     
   ]
 })

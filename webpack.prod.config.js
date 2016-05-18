@@ -9,14 +9,10 @@ const UglifyJsPlugin = require('webpack/lib/optimize/UglifyJsPlugin');
 
 const DefinePlugin = require('webpack/lib/DefinePlugin');
 
-const ENV = process.env.NODE_ENV = 'development';
-const HOST = process.env.HOST || 'localhost';
-const PORT = process.env.PORT || 8080;
+const ENV = process.env.NODE_ENV = 'production';
 
 const metadata = {
-    env: ENV,
-    host: HOST,
-    port: PORT
+    env: ENV
 }
 
 module.exports = {
@@ -54,12 +50,6 @@ module.exports = {
             {test: /\.ts$/, loader: 'ts', query: {compilerOptions: {noEmit: false}}}
         ],
         noParse: [path.join(__dirname, 'node_modules', 'angular2', 'bundles')]
-    },
-    devServer: {
-        contentBase: 'app',
-        historyApiFallback: true,
-        host: metadata.host,
-        port: metadata.port
     },
     devtool: 'source-map'
 }
