@@ -2,12 +2,14 @@
   "name": "angular2-tour-of-heroes",
   "version": "0.0.1",
   "scripts": {
-    "start": "tsc && concurrently \"npm run tsc:w\" \"npm run lite\" ",
-    "lite": "lite-server",
+    "clean": "rimraf dist",
     "postinstall": "typings install",
-    "tsc": "tsc",
-    "tsc:w": "tsc -w",
-    "typings": "typings"
+    "prebuild": "npm run clean",
+    "build": "webpack --config webpack.prod.config.js --progress --profile --colors --display-error-details --display-cached",
+    "start": "webpack-dev-server --inline --colors --progress --display-error-details --display-cached --port 8080",
+    "preserve:dist": "npm run build",
+    "serve:dist": "static dist -z",
+    "deploy": "copyup dist/* public"
   },
   "dependencies": {
     "angular2": "2.0.0-beta.15",
@@ -18,7 +20,10 @@
     "zone.js": "0.6.10"
   },
   "devDependencies": {
+    "compression-webpack-plugin": "^0.3.1",
     "concurrently": "^2.0.0",
+    "copy-webpack-plugin": "^2.1.3",
+    "copyfiles": "^0.2.1",
     "css-loader": "^0.23.1",
     "gulp": "^3.9.1",
     "gulp-concat": "^2.6.0",
@@ -29,8 +34,10 @@
     "gulp-util": "^3.0.7",
     "gulp-watch": "^4.3.5",
     "lite-server": "^2.2.0",
+    "node-static": "^0.7.7",
     "q": "^1.4.1",
     "raw-loader": "^0.5.1",
+    "rimraf": "^2.5.2",
     "run-sequence": "^1.1.5",
     "style-loader": "^0.13.1",
     "ts-loader": "^0.8.2",
