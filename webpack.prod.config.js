@@ -9,7 +9,7 @@ const UglifyJsPlugin = require('webpack/lib/optimize/UglifyJsPlugin');
 
 const DefinePlugin = require('webpack/lib/DefinePlugin');
 
-const ENV = process.env.NODE_ENV = 'production';
+const ENV = process.env.NODE_ENV = 'development';
 
 const metadata = {
     env: ENV
