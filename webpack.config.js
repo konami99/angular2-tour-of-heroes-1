@@ -13,7 +13,7 @@ const metadata = {
 module.exports = {
   debug: true,
   devServer: {
-    contentBase: 'src',
+    contentBase: 'app',
     historyApiFallback: true,
     host: metadata.host,
     port: metadata.port,
@@ -38,7 +38,7 @@ module.exports = {
     filename: 'bundle.js'
 }, plugins: [
     new CommonsChunkPlugin({name: 'vendor', filename: 'vendor.bundle.js', minChunks: Infinity}),
-    new CopyWebpackPlugin([{from: './index.dist.html', to: 'index.html'}]),
+    //new CopyWebpackPlugin([{from: './index.dist.html', to: 'index.html'}]),
     new DefinePlugin({'webpack': {'ENV': JSON.stringify(metadata.env)}})
   ],
   resolve: { extensions: ['', '.ts', '.js']}
