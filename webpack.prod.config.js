@@ -36,8 +36,8 @@ module.exports = {
         new UglifyJsPlugin({
             compress: {screw_ie8 : true},
             mangle: false
-        })
-        //new CopyWebpackPlugin([{from: './index.html', to: 'index.html'}])
+        }),
+        new CopyWebpackPlugin([{from: './app/index.html', to: 'index.html'}])
     ],
     resolve: {
         extensions: ['', '.ts', '.js']
