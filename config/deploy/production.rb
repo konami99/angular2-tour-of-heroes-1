@@ -3,7 +3,7 @@
 # Defines a single server with a list of roles and multiple properties.
 # You can define all roles on a single server, or split them:
 
-server 'ec2-54-186-77-113.us-west-2.compute.amazonaws.com', user: 'deploy', roles: %w{app db web}
+server 'ec2-54-191-241-153.us-west-2.compute.amazonaws.com', user: 'deploy', roles: %w{app db web}
 # server 'example.com', user: 'deploy', roles: %w{app web}, other_property: :other_value
 # server 'db.example.com', user: 'deploy', roles: %w{db}
 
@@ -49,7 +49,7 @@ role :db,  %w{deploy@ec2-54-191-241-153.us-west-2.compute.amazonaws.com}
 #
 # The server-based syntax can be used to override options:
 # ------------------------------------
-server 'deploy@ec2-54-186-77-113.us-west-2.compute.amazonaws.com', {
+server 'deploy@ec2-54-191-241-153.us-west-2.compute.amazonaws.com', {
    user: 'deploy',
    roles: %w{web app},
    ssh_options: {
