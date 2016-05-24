@@ -9,7 +9,7 @@
     "start": "webpack-dev-server --inline --colors --progress --display-error-details --display-cached --port 8080",
     "preserve:dist": "npm run build",
     "serve:dist": "static dist -z",
-    "deploy": "copyup dist/* public"
+    "deploy": "copyup dist/* public/www"
   },
   "dependencies": {
     "angular2": "2.0.0-beta.15",
