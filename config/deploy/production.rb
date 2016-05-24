@@ -17,9 +17,9 @@ set :branch, 'webpack'
 # property set. Specify the username and a domain or IP for the server.
 # Don't use `:all`, it's a meta role.
 
-role :app, %w{deploy@ec2-54-186-77-113.us-west-2.compute.amazonaws.com}
-role :web, %w{deploy@ec2-54-186-77-113.us-west-2.compute.amazonaws.com}
-role :db,  %w{deploy@ec2-54-186-77-113.us-west-2.compute.amazonaws.com}
+role :app, %w{deploy@ec2-54-191-241-153.us-west-2.compute.amazonaws.com}
+role :web, %w{deploy@ec2-54-191-241-153.us-west-2.compute.amazonaws.com}
+role :db,  %w{deploy@ec2-54-191-241-153.us-west-2.compute.amazonaws.com}
 
 
 
