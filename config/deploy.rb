@@ -4,6 +4,8 @@ lock '3.5.0'
 set :application, 'angular'
 set :scm, :git
 set :repo_url, 'https://github.com/konami99/angular2-tour-of-heroes-1.git'
+set :deploy_via, :remote_cache
+set :repo_tree, "public"
 
 # Default branch is :master
 # ask :branch, `git rev-parse --abbrev-ref HEAD`.chomp
@@ -38,13 +40,15 @@ set :pty, true
 
 namespace :deploy do
 
-  after :restart, :clear_cache do
-    on roles(:web), in: :groups, limit: 3, wait: 10 do
-      # Here we can do anything such as:
-      # within release_path do
-      #   execute :rake, 'cache:clear'
-      # end
-    end
+  desc "Build"
+  after :updated, :build do
+      on roles(:app) do
+          within release_path  do
+              #execute "/home/ubuntu/.nvm/versions/node/v4.4.4/bin/npm", "install" # install dependencies
+              #execute "/home/ubuntu/.nvm/versions/node/v4.4.4/bin/npm", "build" # install dependencies
+              #execute "/home/ubuntu/.nvm/versions/node/v4.4.4/bin/npm", "deploy" # install dependencies
+          end
+      end
   end
 
 end

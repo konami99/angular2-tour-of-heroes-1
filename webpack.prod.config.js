@@ -9,14 +9,10 @@ const UglifyJsPlugin = require('webpack/lib/optimize/UglifyJsPlugin');
 
 const DefinePlugin = require('webpack/lib/DefinePlugin');
 
-const ENV = process.env.NODE_ENV = 'development';
-const HOST = process.env.HOST || 'localhost';
-const PORT = process.env.PORT || 8080;
+const ENV = process.env.NODE_ENV = 'production';
 
 const metadata = {
-    env: ENV,
-    host: HOST,
-    port: PORT
+    env: ENV
 }
 
 module.exports = {
@@ -33,15 +29,15 @@ module.exports = {
     plugins: [
         new CommonsChunkPlugin({name: 'vendor', filename: 'vendor.bundle.js', minChunks: Infinity}),
         new CompressionPlugin({regExp: /\.css$|\.html$|\.js$|\.map$/}),
-        new CopyWebpackPlugin([{from: './index.dist.html', to: 'index.html'}]),
+        //new CopyWebpackPlugin([{from: './index.dist.html', to: 'index.html'}]),
         new DedupePlugin(),
         new DefinePlugin({'webpack': {'ENV': JSON.stringify(metadata.env)}}),
         new OccurenceOrderPlugin(true),
         new UglifyJsPlugin({
             compress: {screw_ie8 : true},
             mangle: false
-        })
-        //new CopyWebpackPlugin([{from: './index.html', to: 'index.html'}])
+        }),
+        new CopyWebpackPlugin([{from: './app/index.html', to: 'index.html'}])
     ],
     resolve: {
         extensions: ['', '.ts', '.js']
@@ -54,12 +50,6 @@ module.exports = {
             {test: /\.ts$/, loader: 'ts', query: {compilerOptions: {noEmit: false}}}
         ],
         noParse: [path.join(__dirname, 'node_modules', 'angular2', 'bundles')]
-    },
-    devServer: {
-        contentBase: 'app',
-        historyApiFallback: true,
-        host: metadata.host,
-        port: metadata.port
     },
     devtool: 'source-map'
 }
