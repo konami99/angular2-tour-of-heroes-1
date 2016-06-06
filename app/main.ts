@@ -6,7 +6,7 @@ import { ROUTER_PROVIDERS, ROUTER_DIRECTIVES, Location, LocationStrategy, HashLo
 import { provide, enableProdMode } from 'angular2/core'
 
 
-if(process.env.ENV === 'production') {
+if(process.ENV === 'production') {
     enableProdMode();
 }
 

@@ -1,4 +1,4 @@
 declare function require(path: string);
-declare const webpack: {
+declare const process: {
     ENV: string
 };
